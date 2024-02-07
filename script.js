@@ -20,7 +20,7 @@ const renderCharacters = async () => {
   const people = await fetchApi("people/");
   people.forEach((person) => {
     character += `<li>${person.name}</li>`;
-    console.log(person);
+    console.log(person.homeworld);
   });
 
   characterList.innerHTML = character;
@@ -34,10 +34,6 @@ const renderInfo = async (cName) => {
 
   const info = await fetchApi(`people/?search=${cName}`);
   info.forEach((el) => {
-    // Handle species separately, assuming it's an array
-    
-
-    // Using a template literal for cleaner code
     const characterInfo = `
       <li>Height: ${el.height}</li>
       <li>Mass: ${el.mass}</li>
@@ -49,7 +45,6 @@ const renderInfo = async (cName) => {
       <li>Gender: ${el.gender}</li>
     `;
 
-    // Appending the generated HTML to the infoList
     infoList.innerHTML += characterInfo;
   });
 };
@@ -58,5 +53,18 @@ characterList.addEventListener("click", (e) => {
   if (characterList.contains(e.target) && e.target.tagName === "LI") {
     const characterName = e.target.innerText;
     renderInfo(characterName);
+    renderHomeworld(characterName);
   }
 });
+
+const renderHomeworld = async (cName) => {
+  const people = await fetchApi(`people/?search=${cName}`);
+
+  people.forEach(async (person, i) => {
+    console.log(person.homeworld, "Hey Boss");
+    const response = await fetch(person.homeworld);
+    const homeworldData = await response.json();
+    console.log(homeworldData, i);
+  });
+};
+renderHomeworld();
