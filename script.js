@@ -1,5 +1,6 @@
 const characterList = document.querySelector(".left__character-list");
 const infoList = document.querySelector(".right__info-list");
+const homeWorldList = document.querySelector(".right__info-list-bottom");
 
 const baseUrl = "https://swapi.dev/api/";
 
@@ -15,6 +16,7 @@ const fetchApi = async (endpoint) => {
 
 let character = "";
 let characterInfo = "";
+
 
 const renderCharacters = async () => {
   const people = await fetchApi("people/");
@@ -60,11 +62,12 @@ characterList.addEventListener("click", (e) => {
 const renderHomeworld = async (cName) => {
   const people = await fetchApi(`people/?search=${cName}`);
 
-  people.forEach(async (person, i) => {
+  people.forEach(async (person) => {
     console.log(person.homeworld, "Hey Boss");
     const response = await fetch(person.homeworld);
     const homeworldData = await response.json();
-    console.log(homeworldData, i);
+    console.log(homeworldData);
+    
   });
 };
 renderHomeworld();

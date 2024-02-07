@@ -102,7 +102,12 @@ body {
 }
 
 .right__info-list {
-  height: 90%;
+  height: 45%;
  
+
+}
+.right__info-list-bottom {
+  height: 45%;
+ background-color: #434a52;
 
 }
