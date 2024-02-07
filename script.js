@@ -27,6 +27,16 @@ const renderCharacters = async () => {
 
 renderCharacters();
 
-characterList.addEventListener("click",(e) => {
-    console.log(e.target);
+const renderInfo = async (cName) => {
+const info = await(fetchApi(`people/?search=${cName}`))
+info.forEach((el) => {
+  console.log(`Character: ${el.name}, Gender: ${el.gender}`);
 })
+};
+
+characterList.addEventListener("click", (e) => {
+  if (characterList.contains(e.target) && e.target.tagName === "LI") {
+    const characterName = e.target.textContent;
+    renderInfo(characterName);
+  }
+});
