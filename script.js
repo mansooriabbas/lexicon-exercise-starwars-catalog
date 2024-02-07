@@ -14,6 +14,7 @@ const fetchApi = async (endpoint) => {
 };
 
 let character = "";
+let characterInfo = "";
 
 const renderCharacters = async () => {
   const people = await fetchApi("people/");
@@ -28,15 +29,34 @@ const renderCharacters = async () => {
 renderCharacters();
 
 const renderInfo = async (cName) => {
-const info = await(fetchApi(`people/?search=${cName}`))
-info.forEach((el) => {
-  console.log(`Character: ${el.name}, Gender: ${el.gender}`);
-})
+  // Clear previous content
+  infoList.innerHTML = "";
+
+  const info = await fetchApi(`people/?search=${cName}`);
+  info.forEach((el) => {
+    // Handle species separately, assuming it's an array
+    
+
+    // Using a template literal for cleaner code
+    const characterInfo = `
+      <li>Height: ${el.height}</li>
+      <li>Mass: ${el.mass}</li>
+      <li>Hair Color: ${el.hair_color}</li>
+      <li>Skin Color: ${el.skin_color}</li>
+      <li>Eye Color: ${el.eye_color}</li>
+      <li>Birth Year: ${el.birth_year}</li>
+      <li>Species: ${el.species}</li>
+      <li>Gender: ${el.gender}</li>
+    `;
+
+    // Appending the generated HTML to the infoList
+    infoList.innerHTML += characterInfo;
+  });
 };
 
 characterList.addEventListener("click", (e) => {
   if (characterList.contains(e.target) && e.target.tagName === "LI") {
-    const characterName = e.target.textContent;
+    const characterName = e.target.innerText;
     renderInfo(characterName);
   }
 });
