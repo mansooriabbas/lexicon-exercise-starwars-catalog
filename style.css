@@ -19,7 +19,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: start;
-  background-image: url(/sw-header.png);
+  background-image: url(sw-header.png);
   background-position: bottom;
   background-size: cover;
   background-repeat: no-repeat;
