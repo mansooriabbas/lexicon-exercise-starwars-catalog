@@ -9,8 +9,14 @@
       href="https://fonts.googleapis.com/css2?family=Poller+One&display=swap"
       rel="stylesheet"
     />
-    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
 
     <title>Star Wars Catalog</title>
     <link rel="stylesheet" href="style.css" />
@@ -22,15 +28,15 @@
           <h1>STARWARS CATALOG</h1>
         </section>
       </header>
-     
-      
+
       <section class="page-wrapper__main-content">
         <section class="main-content__left">
           <section class="left__title-container">
-            <h4>Characters</h4>
+            <button id="prevButton">&lt; Prev</button>
+            <button id="nextButton">Next &gt;</button>
           </section>
           <ul class="left__character-list">
-          
+            <div class="loader"></div>
           </ul>
         </section>
         <section class="main-content__right">
@@ -38,14 +44,13 @@
             <h4>Details</h4>
           </section>
           <ul class="right__info-list">
-         
+            <div class="loader loader-r"></div>
           </ul>
           <ul class="right__info-list-bottom">
-         
+            <div class="loader"></div>
           </ul>
         </section>
       </section>
-     
     </main>
 
     <script src="script.js"></script>

@@ -43,7 +43,7 @@ body {
   color: #fdc362;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
 }
 .right__title-container {
@@ -55,7 +55,7 @@ body {
   color: #fdc362;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
 }
 
@@ -98,12 +98,12 @@ body {
 }
 .left__character-list {
   height: 90%;
-  li{
+  li {
     transition: background-color 0.3s ease;
     transition: font-size 0.5s ease;
   }
   li:hover {
-   color: rgb(133, 23, 236);
+    color: rgb(133, 23, 236);
     cursor: pointer;
     font-size: larger;
   }
@@ -127,10 +127,49 @@ body {
     margin: 0;
     text-align: center;
     border: 1px solid rgb(73, 11, 131);
-
   }
   li {
     font-size: 15px;
     margin: 0;
   }
+}
+.left__character-list li.selected-character {
+  color: rgb(133, 23, 236);
+  font-size: larger;
+}
+#prevButton,
+#nextButton {
+  background-color: #434a52;
+  color: #fdc362;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: "Work Sans", sans-serif;
+}
+
+#prevButton:hover,
+#nextButton:hover {
+  background-color: #fdc362;
+  color: #434a52;
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  margin: 0 auto;
+  width: 30px;
+  aspect-ratio: 1.154;
+  clip-path: polygon(50% 0,100% 100%,0 100%);
+  --c:no-repeat linear-gradient(#f03355 0 0);
+  background: var(--c),var(--c),var(--c),var(--c),var(--c);
+  background-size: 100% calc(100%/5 + 1px);
+  animation: l15 2s infinite;
+}
+@keyframes l15 {
+  0%  {background-position: 0 calc(-2*100%/4),0 calc(-2*100%/4),0 calc(-2*100%/4),0 calc(-2*100%/4),0 calc(-2*100%/4)}
+  20% {background-position: 0 calc(4*100%/4) ,0 calc(-2*100%/4),0 calc(-2*100%/4),0 calc(-2*100%/4),0 calc(-2*100%/4)}
+  40% {background-position: 0 calc(4*100%/4) ,0 calc(3*100%/4) ,0 calc(-2*100%/4),0 calc(-2*100%/4),0 calc(-2*100%/4)}
+  60% {background-position: 0 calc(4*100%/4) ,0 calc(3*100%/4) ,0 calc(2*100%/4) ,0 calc(-2*100%/4),0 calc(-2*100%/4)}
+  80% {background-position: 0 calc(4*100%/4) ,0 calc(3*100%/4) ,0 calc(2*100%/4) ,0 calc(1*100%/4) ,0 calc(-2*100%/4)}
+  100%{background-position: 0 calc(4*100%/4) ,0 calc(3*100%/4) ,0 calc(2*100%/4) ,0 calc(1*100%/4) ,0 calc(0*100%/4)}
 }
