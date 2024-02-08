@@ -16,7 +16,7 @@ const fetchApi = async (endpoint) => {
 
 let character = "";
 let characterInfo = "";
-
+let homeWorldInfo = "";
 
 const renderCharacters = async () => {
   const people = await fetchApi("people/");
@@ -37,6 +37,7 @@ const renderInfo = async (cName) => {
   const info = await fetchApi(`people/?search=${cName}`);
   info.forEach((el) => {
     const characterInfo = `
+      <h4>${el.name}</h4>
       <li>Height: ${el.height}</li>
       <li>Mass: ${el.mass}</li>
       <li>Hair Color: ${el.hair_color}</li>
@@ -66,8 +67,20 @@ const renderHomeworld = async (cName) => {
     console.log(person.homeworld, "Hey Boss");
     const response = await fetch(person.homeworld);
     const homeworldData = await response.json();
-    console.log(homeworldData);
+    homeWorldInfo = `
+    <h4>${homeworldData.name}</h4>
+    <li>Rotation period: ${homeworldData.rotation_period} hours</li>
+    <li>ORbital period: ${homeworldData.orbital_period} days</li>
+    <li>Diameter ${homeworldData.diameter}</li>
+    <li>Climate ${homeworldData.climate}</li>
+    <li>Gravity: ${homeworldData.gravity}</li>
+    <li>Terrain: ${homeworldData.terrain}</li>
+    <li>Population ${homeworldData.population}</li>
     
+    `;
+    homeWorldList.innerHTML = homeWorldInfo
   });
 };
 renderHomeworld();
+
+// rotation period in hours, orbital period in days, diameter, climate, gravity, terrain and populations.
