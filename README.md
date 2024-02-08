@@ -2,11 +2,11 @@
 
 ## Overview
 
-Star Wars Catalog, a Vanilla SPA that utilizes the [swapi](https://swapi.dev) API to fetch and display information about Star Wars characters and their home planets.
+Star Wars Catalog utilizes the [swapi](https://swapi.dev) API to fetch and display information about Star Wars characters and their home planets.
 
 ## Design Requirements
 
-- **Hero Header:** The application features a hero header containing image and text.
+- **Hero Header:** The application features a hero header containing an image and text.
 
 - **Two Sections:** The layout is divided into two sections, each occupying approximately 40-50% of the page width.
 
@@ -25,6 +25,13 @@ Star Wars Catalog, a Vanilla SPA that utilizes the [swapi](https://swapi.dev) AP
 - Divided into two parts:
   - Character Information.
   - Home Planet Information.
+
 ### Loading Animation
 
 - When fetching data, the UI presents a loading animation in the corresponding section.
+
+## Live Preview
+
+Check out the live preview: [Star Wars Catalog Live Preview](https://mansooriabbas.github.io/lexicon-exercise-starwars-catalog/)
+
+Feel free to explore and enhance the design, making it visually appealing with your CSS skills.
