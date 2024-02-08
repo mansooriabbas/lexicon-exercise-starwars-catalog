@@ -78,7 +78,7 @@ const renderHomeworld = async (cName) => {
     <li>Population ${homeworldData.population}</li>
     
     `;
-    homeWorldList.innerHTML = homeWorldInfo
+    homeWorldList.innerHTML = homeWorldInfo;
   });
 };
 renderHomeworld();

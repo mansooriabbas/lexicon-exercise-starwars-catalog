@@ -103,7 +103,7 @@ body {
     transition: font-size 0.5s ease;
   }
   li:hover {
-   color: #6d19db;
+   color: rgb(133, 23, 236);
     cursor: pointer;
     font-size: larger;
   }
@@ -114,7 +114,7 @@ body {
   h4 {
     margin: 0;
     text-align: center;
-    border: 1px solid rgb(73, 11, 131);;
+    border: 1px solid rgb(73, 11, 131);
   }
   li {
     font-size: 15px;
